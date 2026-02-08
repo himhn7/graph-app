@@ -191,6 +191,7 @@ input {
 .status-bar {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
   padding: 8px 12px;
   border-bottom: 1px solid var(--border);
   background: #f9fff2;
@@ -257,16 +258,24 @@ input {
   box-shadow: 0 4px 8px rgba(24, 38, 26, 0.16);
 }
 
-.cloud-node-icon {
-  border: 2px solid;
-  border-radius: 50%;
+.cloud-node-icon-wrap {
   width: 34px;
   height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.icon-generic {
+  border: 2px solid;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
-  font-size: 0.66rem;
+  font-size: 0.72rem;
   background: rgba(255, 255, 255, 0.8);
 }
 
@@ -274,6 +283,104 @@ input {
   font-weight: 700;
   font-size: 0.9rem;
   line-height: 1.15;
+}
+
+.node-handle {
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border: 2px solid #12456f;
+}
+
+.icon-db {
+  width: 26px;
+  height: 22px;
+  position: relative;
+  display: inline-block;
+}
+
+.icon-db-top,
+.icon-db-bottom {
+  position: absolute;
+  left: 2px;
+  width: 22px;
+  height: 7px;
+  border: 2px solid;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.icon-db-top {
+  top: 0;
+}
+
+.icon-db-body {
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 22px;
+  height: 14px;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.icon-db-bottom {
+  bottom: 0;
+}
+
+.icon-ec2 {
+  width: 26px;
+  height: 26px;
+  border: 2px solid;
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.icon-ec2 span {
+  border: 1px solid;
+  border-radius: 2px;
+}
+
+.icon-vpc {
+  width: 28px;
+  height: 26px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-vpc span {
+  position: absolute;
+  border: 2px solid;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.icon-vpc span:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  left: 1px;
+}
+
+.icon-vpc span:nth-child(2) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  right: 1px;
+}
+
+.icon-vpc span:nth-child(3) {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  top: 2px;
 }
 
 @media (max-width: 1024px) {

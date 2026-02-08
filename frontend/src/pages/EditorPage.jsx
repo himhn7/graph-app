@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import ReactFlow, {
   Background,
+  ConnectionLineType,
   Controls,
   MiniMap,
   MarkerType,
@@ -104,7 +105,9 @@ function EditorPage() {
         addEdge(
           {
             ...connection,
-            markerEnd: { type: MarkerType.ArrowClosed }
+            markerEnd: { type: MarkerType.ArrowClosed, width: 18, height: 18 },
+            type: "smoothstep",
+            style: { strokeWidth: 2, stroke: "#1f4f88" }
           },
           existing
         )
@@ -318,6 +321,10 @@ function EditorPage() {
         <div className="editor-shell" ref={editorShellRef}>
           <div className="status-bar">
             {loadLoading ? <span>Loading diagram...</span> : <span>Ready</span>}
+            <span className="muted">
+              Connect edges: drag from right dot of source node to left dot of target
+              node.
+            </span>
             {message ? <span className="ok-text">{message}</span> : null}
             {error ? <span className="error-text">{error}</span> : null}
           </div>
@@ -334,6 +341,12 @@ function EditorPage() {
               onPaneClick={() => setContextMenu(null)}
               onInit={setReactFlowInstance}
               nodeTypes={nodeTypes}
+              defaultEdgeOptions={{
+                type: "smoothstep",
+                markerEnd: { type: MarkerType.ArrowClosed, width: 18, height: 18 },
+                style: { strokeWidth: 2, stroke: "#1f4f88" }
+              }}
+              connectionLineType={ConnectionLineType.SmoothStep}
               fitView
             >
               <MiniMap pannable zoomable />

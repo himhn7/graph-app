@@ -72,6 +72,14 @@ Or run both:
 npm run dev
 ```
 
+Single-click Windows entry point from project root CMD:
+
+```cmd
+start-dev.cmd
+```
+
+This opens two terminals (backend + frontend) in auto-reload mode.
+
 Frontend URL: `http://localhost:5173`  
 Backend URL: `http://localhost:4000`
 
